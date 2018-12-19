@@ -1,13 +1,13 @@
 <ul class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
     {{#each breadcrumbs}}
         <li class="breadcrumb {{#if @last}}is-active{{/if}}" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-            {{#if url}}
-                <a href="{{url}}" class="breadcrumb-label" itemprop="item"><span itemprop="name">{{name}}</span></a>
-            {{else}}
+            {{#if @last}}
                 <meta itemprop="item" content="{{url}}">
                 <span class="breadcrumb-label" itemprop="name">{{name}}</span>
+            {{else}}
+                <a href="{{url}}" class="breadcrumb-label" itemprop="item"><span itemprop="name">{{name}}</span></a>
             {{/if}}
-            <meta itemprop="position" content="{{@index}}" />
+            <meta itemprop="position" content="{{add @index 1}}" />
         </li>
     {{/each}}
 </ul>
